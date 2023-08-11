@@ -1,16 +1,13 @@
 #include <iostream>
-
-#include "arrow/api.h"
-
-#include "./config.h"
+#include <filesystem>
 #include "gar/graph.h"
 #include "gar/graph_info.h"
 #include "gar/reader/arrow_chunk_reader.h"
 #include "gar/writer/arrow_chunk_writer.h"
 
 int main(int argc, char* argv[]) {
-  std::string path = "/home/jasin/neo4j2graphar/MovieGraph.graph.yml";
-
+  // path指向graph.yaml文件
+  std::string path = std::filesystem::current_path().string() + "/../neo4j2graphar/MovieGraph.graph.yml";
   auto graph_info = GAR_NAMESPACE::GraphInfo::Load(path).value();
 
   // 打印节点信息

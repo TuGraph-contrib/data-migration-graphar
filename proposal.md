@@ -68,6 +68,17 @@
 
 **结果**：阅读v3源码，参考v3的csv parser和jsonline parser制作一个graphar的parser
 
+### GraphAr Parser开发问题
+
+1. 解析Schema流程。
+应该从yaml文件中解析出配置，先生成Schema配置文件，后期优化为直接生成TuGraph中的Schema
+
+2. optional unique default暂时不管
+3. 可以使用GraphAr生成的id，作为连接边时候的信息
+4. 支持自定义类型-*todo*
+
+***
+
 ## TimeLine
 
 时间线以及任务总结
@@ -85,3 +96,9 @@
 | 8.4 双周会  | 评估进度, 请教阅读源码方式       |                                                        |
 | 8.4-8.7     | 优化demo, 读懂impoter, 准备讨论  |                                                        |
 | 8.7         | 讨论方案                         | ✔️完成[GraphAr方案讨论](#graphar方案讨论)               |
+| 8.8-8.15    | GraphAr Parser开发               |                                                        |
+| 8.15        | GraphArParser方案讨论            |                                                        |
+| 8.15-8.18   | Docker增加GraphAr包              |                                                        |
+| 8.18双周会  | GraphAr打包问题                  |                                                        |
+| 8.18-8.25   | 支持边导入                       |                                                        |
+| 8.25-8.31   | 解析yaml自动生成配置信息         |                                                        |

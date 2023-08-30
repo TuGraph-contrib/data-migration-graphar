@@ -84,7 +84,7 @@ void WalkEdge(const GAR_NAMESPACE::EdgeInfo &edge_info, std::vector<Dict> &props
 
 int main()
 {
-  std::string path = "/root/GraphAr/testing/ldbc_sample/parquet/ldbc_sample.graph.yml";
+  std::string path = "./gar-test/ldbc_sample/parquet/ldbc_sample.graph.yml";
   auto graph_info = GAR_NAMESPACE::GraphInfo::Load(path).value();
 
   nlohmann::json json_conf;

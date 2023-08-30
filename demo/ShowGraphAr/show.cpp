@@ -8,7 +8,7 @@
 
 int main(int argc, char* argv[]) {
   // path指向graph.yaml文件
-  std::string path = "/root/GraphAr/testing/ldbc_sample/parquet/ldbc_sample.graph.yml";
+  std::string path = "./gar-test/ldbc_sample/parquet/ldbc_sample.graph.yml";
   auto graph_info = GAR_NAMESPACE::GraphInfo::Load(path).value();
 
   // arrow

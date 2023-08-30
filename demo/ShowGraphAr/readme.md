@@ -2,33 +2,26 @@
 
 ## 环境说明
 
-需要安装GraphAr 
+1. 需要安装GraphAr, 其中show程序需要安装arrow
+2. 下载数据
 
-**注**: GraphAr安装过程会使用apache arrow-10 本地如果有安装apache arrow 会同步本地版本号 但是编译时还是从源代码下载使用 下载过程很漫长 可以通过log文件查看进度 如果报连接错误 需要手动下载移动到指定文件夹
-
-GraphAr源码安装示例(ubuntu)
-
-``` bash
-    $ git clone https://github.com/alibaba/GraphAr.git
-    $ cd GraphAr
-    $ git submodule update --init
-    $ cd cpp
-
-    $ mkdir build-release
-    $ cd build-release
-    $ cmake ..
-    $ make -j8
-
-    $ sudo make install # make install
+```shell
+git clone https://github.com/GraphScope/gar-test.git
 ```
 
 ## 运行说明
+
+cmake指定target参数, 默认config
 
 ``` bash
     $ mkdir build && cd build
     $ cmake ..
     $ make
-    $ ./show 
+    $ ./show
 ```
+
+1. config展示从Gar中生成json对象用于解析schema
+2. show展示数据, 分别展示arrow chunk, 点, 边
+3. primary展示获取主键和数据转化构造
 
 注意修改源码中的path路径，以及graph.yml中的prefix路径信息

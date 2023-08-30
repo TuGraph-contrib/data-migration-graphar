@@ -9,4 +9,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17 -Wall")
 set(TARGET "config")
 
 add_executable(${TARGET} ${TARGET}.cpp)
-target_link_libraries(${TARGET} PRIVATE gar stdc++fs Threads::Threads)
+target_link_libraries(${TARGET} PRIVATE gar stdc++fs Threads::Threads arrow)

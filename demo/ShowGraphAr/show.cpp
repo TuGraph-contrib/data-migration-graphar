@@ -1,14 +1,16 @@
 #include <iostream>
 #include <filesystem>
-#include "arrow/api.h"
-#include "gar/graph.h"
-#include "gar/graph_info.h"
-#include "gar/reader/arrow_chunk_reader.h"
-#include "gar/writer/arrow_chunk_writer.h"
+#include <arrow/api.h>
+#include <gar/graph.h>
+#include <gar/graph_info.h>
+#include <gar/reader/arrow_chunk_reader.h>
+#include <gar/writer/arrow_chunk_writer.h>
 
-int main(int argc, char* argv[]) {
-  // path指向graph.yaml文件
-  std::string path = "./gar-test/ldbc_sample/parquet/ldbc_sample.graph.yml";
+int main(int argc, char *argv[])
+{
+  // graph.yaml
+  std::string gar_path = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path();
+  std::string path = gar_path + "/gar-test/ldbc_sample/parquet/ldbc_sample.graph.yml";
   auto graph_info = GAR_NAMESPACE::GraphInfo::Load(path).value();
 
   // arrow
@@ -47,25 +49,27 @@ int main(int argc, char* argv[]) {
   };
   walkReader(reader);
 
-  // 打印节点信息
+  // vertex
   auto vertices_collection = GAR_NAMESPACE::ConstructVerticesCollection(graph_info, "person").value();
 
-  for (auto it = vertices_collection.begin(); it != vertices_collection.end(); ++it) {
+  for (auto it = vertices_collection.begin(); it != vertices_collection.end(); ++it)
+  {
     auto vertex = *it;
     std::cout << "id=" << vertex.id()
               << ", firstName=" << vertex.property<std::string>("firstName").value()
               << std::endl;
   }
 
-  // 打印边信息
+  // edge
   auto edge_collection = GAR_NAMESPACE::ConstructEdgesCollection(
-                    graph_info, "person", "knows", "person",
-                    GraphArchive::AdjListType::ordered_by_source)
-                    .value();
+                             graph_info, "person", "knows", "person",
+                             GraphArchive::AdjListType::ordered_by_source)
+                             .value();
   auto edges = std::get<GraphArchive::EdgesCollection<
       GraphArchive::AdjListType::ordered_by_source>>(edge_collection);
-  for (auto it = edges.begin(); it != edges.end(); ++it) {
-    auto edge = *it;                     
+  for (auto it = edges.begin(); it != edges.end(); ++it)
+  {
+    auto edge = *it;
     std::cout << "src=" << edge.source() << ", dst=" << edge.destination() << std::endl;
   }
 }

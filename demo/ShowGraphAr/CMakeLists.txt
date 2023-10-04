@@ -12,6 +12,8 @@ find_package(Arrow REQUIRED)
 find_package(ArrowDataset REQUIRED)
 find_package(ArrowAcero REQUIRED)
 find_package(Parquet REQUIRED)
+find_package(gar REQUIRED)
+find_package(Threads REQUIRED)
 
 add_executable(${TARGET} ${TARGET}.cpp)
 target_link_libraries(${TARGET} PRIVATE gar stdc++fs Threads::Threads 

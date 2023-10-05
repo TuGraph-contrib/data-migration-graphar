@@ -1,5 +1,7 @@
 # data-migration
 
+![导入流程](process.png)
+
 ## 利用spark将数据从neo4j导出到GraphAr
 
 ### 环境搭建

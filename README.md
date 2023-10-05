@@ -43,6 +43,13 @@ mvn clean package -DskipTests
 
 ## GraphAr数据导入tugraph-db
 
-1. 使用lgraph_import工具, 设置配置文件为gar数据中的XXX.graph.yal, 注意为绝对路径, 设置gar=true即可
+### 导入说明
+
+1. 使用lgraph_import工具, 设置配置文件为gar数据中的XXX.graph.yml, 注意为绝对路径, 设置gar=true即可
 2. 示例
    `./lgraph_import -c /root/movie-gar/movie.graph.yml --gar true`
+
+### 注意
+
+1. GraphAr数据中的yml配置文件可以修改, 比如可以在graph.yml中删除指定的vertex或者edge, 也可以在对应的vertex.yml用prefix指定数据路径，数据存储路径可以与配置存储路径分离。
+2. GraphAr支持相同的edge_label可以具有不同的properties, 这类数据在tugraph-db中不支持, 导入过程中会报错指出对应edge_label, 可以根据报错信息在GraphAr数据中做修改

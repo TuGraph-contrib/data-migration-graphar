@@ -1,0 +1,3 @@
+[submodule "demo/Neo4j2GraphAr/GraphAr"]
+	path = demo/Neo4j2GraphAr/GraphAr
+	url = https://github.com/jasinliu/GraphAr.git

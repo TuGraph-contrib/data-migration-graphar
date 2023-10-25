@@ -1,6 +1,0 @@
-[submodule "gar-test"]
-	path = gar-test
-	url = https://github.com/GraphScope/gar-test.git
-[submodule "demo/Neo4j2GraphAr/GraphAr"]
-	path = demo/Neo4j2GraphAr/GraphAr
-	url = https://github.com/jasinliu/GraphAr.git

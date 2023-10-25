@@ -9,8 +9,8 @@
 int main(int argc, char *argv[])
 {
   // graph.yaml
-  std::string gar_path = std::filesystem::path(__FILE__).parent_path().parent_path().parent_path();
-  std::string path = gar_path + "/gar-test/ldbc_sample/parquet/ldbc_sample.graph.yml";
+  std::string demo_path = std::filesystem::path(__FILE__).parent_path().parent_path()
+  std::string path = demo_path + "/ldbc_sample/parquet/ldbc_sample.graph.yml";
   auto graph_info = GAR_NAMESPACE::GraphInfo::Load(path).value();
 
   // arrow

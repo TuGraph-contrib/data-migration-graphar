@@ -32,7 +32,7 @@ export PATH="${NEO4J_HOME}/bin":"${PATH}"
 #### GraphAr spark
 
 ```bash
-git clone https://github.com/jasinliu/GraphAr.git
+git clone https://github.com/alibaba/GraphAr.git
 cd GraphAr/spark
 mvn clean package -DskipTests
 ```
@@ -56,7 +56,3 @@ mvn clean package -DskipTests
 1. GraphAr数据中的yml配置文件可以修改, 比如可以在graph.yml中删除指定的vertex或者edge, 也可以在对应的vertex.yml用prefix指定数据路径，数据存储路径可以与配置存储路径分离。
 2. GraphAr支持相同的edge_label可以具有不同的properties, 这类数据在tugraph-db中不支持, 导入过程中会报错指出对应edge_label, 可以根据报错信息在GraphAr数据中做修改
 
-
-## TODO
-
-GraphAr仓库更新importer工具, 支持用户自定义其他数据源的schema导入到GraphAr中, GraphAr仓库换成官方仓库

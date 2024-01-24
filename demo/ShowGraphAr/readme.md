@@ -2,33 +2,38 @@
 
 ## 环境说明
 
-需要安装GraphAr 
-
-**注**: GraphAr安装过程会使用apache arrow-10 本地如果有安装apache arrow 会同步本地版本号 但是编译时还是从源代码下载使用 下载过程很漫长 可以通过log文件查看进度 如果报连接错误 需要手动下载移动到指定文件夹
-
-GraphAr源码安装示例(ubuntu)
-
-``` bash
-    $ git clone https://github.com/alibaba/GraphAr.git
-    $ cd GraphAr
-    $ git submodule update --init
-    $ cd cpp
-
-    $ mkdir build-release
-    $ cd build-release
-    $ cmake ..
-    $ make -j8
-
-    $ sudo make install # make install
-```
+1. 需要安装GraphAr, 同时show程序需要安装arrow
+2. 数据来自gar-test项目中
 
 ## 运行说明
 
 ``` bash
-    $ mkdir build && cd build
-    $ cmake ..
-    $ make
-    $ ./show 
+$ mkdir build && cd build
+$ cmake ..
+$ make
+$ ./show
 ```
 
-注意修改源码中的path路径，以及graph.yml中的prefix路径信息
+1. show展示数据, 分别展示点, 边
+2. 注意源码中的path路径为绝对路径
+
+## 附录
+
+### arrow安装
+
+注意编译选项
+
+```bash
+wget https://tugraph-web.oss-cn-beijing.aliyuncs.com/tugraph/deps/graphar/apache-arrow-13.0.0.tar.gz \
+  && tar xf apache-arrow-13.0.0.tar.gz && cd apache-arrow-13.0.0/cpp && mkdir build && cd build \
+  && cmake .. -DARROW_DATASET=ON -DARROW_PARQUET=ON -DARROW_ORC=ON -DARROW_CSV=ON && make \
+  && make install 
+```
+
+### gar安装(依赖系统安装arrow)
+
+```bash
+wget https://tugraph-web.oss-cn-beijing.aliyuncs.com/tugraph/deps/graphar/GraphAr-0.8.0.tar.gz \
+  && tar xf GraphAr-0.8.0.tar.gz && cd GraphAr-0.8.0/cpp && mkdir build && cd build \
+  && cmake .. && make && make install
+```
